@@ -1,0 +1,23 @@
+<div class="ladytop">
+	<div class="nav">
+		<div class="left"><a href="/jiehun/"><img src="__PUBLIC__/images/hunshang.png" alt=""></a></div>
+		<div class="right">
+			<div class="box">
+
+				<a href="{:url('index/index')}"  rel='dropmenu209'>首页</a>
+
+				{volist name="cates" id="vo"}
+				<a href="{:url('cate/index',array('cateid'=>$vo['id']))}"  rel='dropmenu209'>{$vo.catename}</a>
+				{/volist}
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="hotmenu">
+	<div class="con">热门标签：
+		{volist name="tagres" id="vo"}
+		<a href='http://localhost/tp5/public/index/search/index?keywords={$vo.tagname}'>{$vo.tagname}</a>
+		{/volist}
+	</div>
+</div>
