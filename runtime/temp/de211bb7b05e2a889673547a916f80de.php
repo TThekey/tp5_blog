@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:83:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\public/../application/admin\view\admin\lst.html";i:1543910135;s:74:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\admin\view\common\top.html";i:1541993868;s:75:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\admin\view\common\left.html";i:1543468376;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:83:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\public/../application/admin\view\admin\lst.html";i:1551942012;s:74:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\admin\view\common\top.html";i:1541993868;s:75:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\admin\view\common\left.html";i:1543468376;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -250,7 +250,7 @@
                                 <td align="center"><?php echo $vo['username']; ?></td>
                                 <td align="center"><?php echo $vo['grouptitle']; ?></td>
                                 <td align="center">
-                                    <a href="<?php echo url('admin/edit',array('id'=>$vo['id'])); ?>" class="btn btn-primary btn-sm shiny">
+                                    <a href="<?php echo url('edit',array('id'=>$vo['id'])); ?>" class="btn btn-primary btn-sm shiny">
                                         <i class="fa fa-edit"></i> 编辑
                                     </a>
                                     <?php if($vo['id'] != 4): ?>

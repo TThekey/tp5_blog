@@ -9,6 +9,13 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
+use think\Route;
+
+Route::rule('admin_edit','@admin/admin/edit');
+
+//Route::post('admin/add','admin/admin/add');
+
+
 return [
     '__pattern__' => [
         'name' => '\w+',
@@ -17,5 +24,7 @@ return [
         ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
         ':name' => ['index/hello', ['method' => 'post']],
     ],
+
+    //'id/[:id]' => 'admin/admin/edit',
 
 ];

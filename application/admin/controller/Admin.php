@@ -3,6 +3,7 @@ namespace app\admin\controller;
 use app\admin\model\Admin as AdminModel;
 use app\admin\controller\Base;
 use think\Auth;
+use think\Request;
 
 class Admin  extends Base
 {
@@ -24,6 +25,10 @@ class Admin  extends Base
     public function add()
     {
         if(request()->isPost()){
+//        $request = Request::instance();
+//        $par = $request->param();
+//        dump($par);die;
+
             $date=[
               "username"=>input("username"),
               "password"=>md5(input("password")),
@@ -62,7 +67,13 @@ class Admin  extends Base
 
     public function edit(){
 
+//        $request = Request::instance();
+//        $par = $request->param();
+//        dump($par);die;
+
+
         $id = input("id");
+//        dump($id);die;
         $admins = db("admin")->find($id);
 
         if(request()->isPost()){
@@ -129,6 +140,22 @@ class Admin  extends Base
         $this->success("退出成功","login/index");
 
     }
+
+    /*
+     *
+     *
+     * */
+//
+
+/**
+ *
+ *
+ *
+ */
+
+/**
+ *
+ */
 
 
 
