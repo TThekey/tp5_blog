@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:87:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\public/../application/index\view\search\search.html";i:1554473387;s:77:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\index\view\common\header.html";i:1542624756;s:76:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\index\view\common\right.html";i:1542588200;s:75:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\index\view\common\foot.html";i:1540965124;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\public/../application/index\view\cate\cate.html";i:1554473155;s:77:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\index\view\common\header.html";i:1542624756;s:76:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\index\view\common\right.html";i:1542588200;s:75:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\index\view\common\foot.html";i:1540965124;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -38,13 +38,13 @@
 </div>
 <!--顶部通栏-->
 
-			<div class="position"><a href="">搜索：</a>  <a href=""><?php echo $keywords; ?></a>   </div>
+			<div class="position"><a href="<?php echo url('index/index'); ?>">主页</a> > <a href=""><?php echo $Cates['catename']; ?></a>   </div>
 
 
 <div class="overall">
 
 	<div class="left">
-			<?php if(is_array($searchs) || $searchs instanceof \think\Collection || $searchs instanceof \think\Paginator): $i = 0; $__LIST__ = $searchs;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+			<?php if(is_array($articles) || $articles instanceof \think\Collection || $articles instanceof \think\Paginator): $i = 0; $__LIST__ = $articles;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 				<div class="xnews2">
 				<div class="pic"><a target="_blank" href="<?php echo url('article/index',array('arid'=>$vo['id'])); ?>">
 					<img src="<?php if($vo['pic'] != ''): ?>http://localhost/tp5/public/static/uploads/<?php echo $vo['pic']; else: ?>http://localhost/tp5/public/static/index/images/error.png <?php endif; ?>" alt=""/></a></div>
@@ -66,7 +66,7 @@
 
 				<div class="pages">
 				<div class="plist" >
-					<?php echo $searchs->render(); ?>
+					<?php echo $articles->render(); ?>
 				</div>
 				</div>
 	</div>

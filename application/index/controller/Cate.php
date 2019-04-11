@@ -12,6 +12,6 @@ class Cate  extends Base
 
         $articles = db("article")->where(array("cateid"=>$id))->paginate(3);
         $this->assign("articles",$articles);
-        return $this->fetch("cate");
+        return view("cate");
     }
 }

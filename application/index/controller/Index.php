@@ -8,6 +8,6 @@ class Index  extends Base
     {
         $articles = db("article")->order("id desc")->paginate(3);
         $this->assign("articles",$articles);
-        return $this->fetch();
+        return view();
     }
 }

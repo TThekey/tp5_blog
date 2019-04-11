@@ -1,8 +1,8 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:87:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\public/../application/admin\view\auth_rule\lst.html";i:1543560231;s:74:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\admin\view\common\top.html";i:1541993868;s:75:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\admin\view\common\left.html";i:1543468376;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:87:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\public/../application/admin\view\auth_rule\lst.html";i:1554472573;s:74:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\admin\view\common\top.html";i:1554471984;s:75:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\admin\view\common\left.html";i:1554471984;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
-    <title>童老师ThinkPHP交流群：484519446</title>
+    <title>个人博客网站</title>
 
     <meta name="description" content="Dashboard">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +46,7 @@
                         <li>
                             <a class="login-area dropdown-toggle" data-toggle="dropdown">
                                 <div class="avatar" title="View your public profile">
-                                    <img src="http://localhost/tp5/public/static/admin/images/adam-jansen.jpg">
+                                    <!--<img src="http://localhost/tp5/public/static/admin/images/adam-jansen.jpg">-->
                                 </div>
                                 <section>
                                     <h2><span class="profile"><span><?php echo \think\Request::instance()->session('username'); ?></span></span></h2>
@@ -196,15 +196,6 @@
                 </li>
             </ul>
         </li>
-
-        <li>
-            <a href="http://www.chuanke.com/s2260700.html" class="menu-dropdown">
-                <i class="menu-icon fa fa-gear"></i>
-                <span class="menu-text">视频教程</span>
-                <i class="menu-expand"></i>
-            </a>
-        </li>
-
     </ul>
     <!-- /Sidebar Menu -->
 </div>

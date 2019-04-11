@@ -1,11 +1,11 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\public/../application/index\view\index\index.html";i:1542590886;s:77:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\index\view\common\header.html";i:1542624756;s:76:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\index\view\common\right.html";i:1542588200;s:75:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\index\view\common\foot.html";i:1540965124;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\public/../application/index\view\index\index.html";i:1554473387;s:77:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\index\view\common\header.html";i:1542624756;s:76:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\index\view\common\right.html";i:1542588200;s:75:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\index\view\common\foot.html";i:1540965124;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>童老师ThinkPHP交流群：484519446</title>
+<title>个人博客网站</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="童老师ThinkPHP交流群：484519446" />
-<meta name="description" content="童老师ThinkPHP交流群：484519446" /> 
+<meta name="keywords" content="个人博客网站" />
+<meta name="description" content="个人博客网站" /> 
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <link href="http://localhost/tp5/public/static/index/style/lady.css" type="text/css" rel="stylesheet" />
 <script type='text/javascript' src='http://localhost/tp5/public/static/index/style/ismobile.js'></script>

@@ -14,10 +14,10 @@ class Base  extends Controller
 
         $auth = new Auth();
         $request = Request::instance();
-        $controller = $request->controller();
-        $action = $request->action();
+        $controller = $request->controller();   //得到当前控制器
+        $action = $request->action();   //得到当前方法
         $name = $controller.'/'.$action;
-        $notCheck = array("Index/index","Admin/lst","Admin/logout");
+        $notCheck = array("Index/index","Admin/lst","Admin/logout");    //白名单
         if(session("uid")!=1){
             if(!in_array($name,$notCheck)){
                 if(!$auth->check($name,session("uid"))){

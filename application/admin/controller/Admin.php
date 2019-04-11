@@ -15,67 +15,53 @@ class Admin  extends Base
                 $_grouptitle = $auth->getGroups($v['id']);
                 if($_grouptitle){
                     $grouptitle = $_grouptitle[0]['title'];
-                    $v['grouptitle'] = $grouptitle;
+                    $v['grouptitle'] = $grouptitle; //人工添加grouptitle字段
                 }
         }
         $this->assign("list",$list);
-        return $this->fetch();
+        return view();
     }
 
     public function add()
     {
+        //添加逻辑
         if(request()->isPost()){
-//        $request = Request::instance();
-//        $par = $request->param();
-//        dump($par);die;
-
             $date=[
               "username"=>input("username"),
               "password"=>md5(input("password")),
             ];
 
-           $validate = validate("Admin");
-
+           $validate = validate("Admin");   //验证
             if(!$validate->scene("add")->check($date)){
                 $this->error($validate->getError());
-
             }
 
-            //$request = db("admin")->insert($date);
-            $admin = AdminModel::create($date);
-
-            if($admin){
+            $admin = AdminModel::create($date); //插入admin表
+            if($admin) {
                 $groupAccess=[
                     "uid"=>$admin['id'],
                     "group_id"=>input("group_id"),
                 ];
-                db("auth_group_access")->insert($groupAccess);
+                db("auth_group_access")->insert($groupAccess); //插入groupaccess表
                 return $this->success("添加管理员成功","lst");
-
             }else{
                 return $this->error("添加管理员失败");
             }
-
             return;
         }
 
+        //添加界面
         $authGroupRes = db("auth_group")->select();
         $this->assign("authGroupRes",$authGroupRes);
-
-        return $this->fetch();
+        return view();
     }
 
-    public function edit(){
-
-//        $request = Request::instance();
-//        $par = $request->param();
-//        dump($par);die;
-
-
+    public function edit()
+    {
         $id = input("id");
-//        dump($id);die;
         $admins = db("admin")->find($id);
 
+        //编辑逻辑
         if(request()->isPost()){
             $data =[
                 "id" => input("id"),
@@ -87,11 +73,10 @@ class Admin  extends Base
                 $data["password"] = $admins["password"];
             }
 
-            $validate = validate("Admin");
+            $validate = validate("Admin");  //验证
 
             if(!$validate->scene("edit")->check($data)){
                 $this->error($validate->getError());
-
             }
 
             $request = db("admin")->update($data);
@@ -101,28 +86,26 @@ class Admin  extends Base
                     "group_id"=>input("group_id"),
                 ];
                 db("auth_group_access")->where("uid",$groupAccess['uid'])->setField("group_id",$groupAccess['group_id']);
-
                 return $this->success("修改管理员成功","lst");
-
             }else{
                 return $this->error("修改管理员失败");
             }
-
             return;
         }
 
+        //编辑界面
         $authGroupAccess = db("auth_group_access")->where(array("uid"=>$id))->find();
         $authGroupRes = db("auth_group")->select();
         $this->assign("authGroupRes",$authGroupRes);
         $this->assign("admins",$admins);
         $this->assign("GroupID",$authGroupAccess['group_id']);
-        return $this->fetch();
+        return view();
     }
 
-    public function del(){
-        $id = input("id");
-
-        if($id != 1){
+    public function del()
+    {
+        $id = input('id');
+        if($id != 1){   //初始管理员不能删除
             $request = db("admin")->delete($id);
             if($request){
                 $this->success("删除管理员成功","lst");
@@ -134,29 +117,11 @@ class Admin  extends Base
         }
     }
 
-    public function  logout(){
 
-        session(null);
+    public function logout()
+    {
+        session(null);  //清除session
         $this->success("退出成功","login/index");
-
     }
-
-    /*
-     *
-     *
-     * */
-//
-
-/**
- *
- *
- *
- */
-
-/**
- *
- */
-
-
 
 }

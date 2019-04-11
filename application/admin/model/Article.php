@@ -4,7 +4,9 @@ use think\Model;
 
 class Article extends Model
 {
-    public function cate(){
+    //关联cate表
+    public function cate()
+    {
         return $this->belongsTo("Cate","cateid");
     }
 

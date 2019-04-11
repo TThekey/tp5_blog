@@ -1,8 +1,8 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:85:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\public/../application/admin\view\login\login.html";i:1542019510;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:85:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\public/../application/admin\view\login\login.html";i:1554472259;}*/ ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"><!--Head--><head>
     <meta charset="utf-8">
-    <title>童老师ThinkPHP交流群：484519446</title>
+    <title>个人博客网站</title>
     <meta name="description" content="login page">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,9 +37,7 @@
                     <input class="btn btn-primary btn-block" value="Login" type="submit">
                 </div>
             </div>
-                <div class="logobox">
-                    <p class="text-center">童老师ThinkPHP交流群：4845194464</p>
-                </div>
+
         </form>
     </div>
     <!--Basic Scripts-->

@@ -9,7 +9,7 @@ class Links  extends Base
     {
         $list = LinksModel::paginate(3);
         $this->assign("list",$list);
-        return $this->fetch();
+        return view();
     }
 
     public function add()
@@ -21,8 +21,7 @@ class Links  extends Base
                  "desc"=>(input("desc")),
             ];
 
-           $validate = validate("Links");
-
+            $validate = validate("Links");
             if(!$validate->scene("add")->check($date)){
                 $this->error($validate->getError());
             }
@@ -30,7 +29,6 @@ class Links  extends Base
             $request = db("links")->insert($date);
             if($request){
                 return $this->success("添加链接成功","lst");
-
             }else{
                 return $this->error("添加链接失败");
             }
@@ -38,14 +36,15 @@ class Links  extends Base
             return;
         }
 
-        return $this->fetch();
+        return view();
     }
 
-    public function edit(){
-
+    public function edit()
+    {
         $id = input("id");
         $links = db("links")->find($id);
 
+        //编辑逻辑
         if(request()->isPost()){
             $data =[
                 "id" => input("id"),
@@ -54,18 +53,14 @@ class Links  extends Base
                 "desc" => input("desc"),
             ];
 
-
             $validate = validate("Links");
-
             if(!$validate->scene("edit")->check($data)){
                 $this->error($validate->getError());
-
             }
 
             $request = db("links")->update($data);
             if($request){
                 return $this->success("修改链接成功","lst");
-
             }else{
                 return $this->error("修改链接失败");
             }
@@ -73,23 +68,19 @@ class Links  extends Base
             return;
         }
 
-
         $this->assign("links",$links);
-
-        return $this->fetch();
+        return view();
     }
 
-    public function del(){
+    public function del()
+    {
         $id = input("id");
         $request = db("links")->delete($id);
-            if($request){
-                $this->success("删除链接成功","lst");
-            }else{
-                $this->error("删除链接失败");
-            }
-
+        if($request){
+            $this->success("删除链接成功","lst");
+        }else{
+            $this->error("删除链接失败");
+        }
     }
-
-
 
 }

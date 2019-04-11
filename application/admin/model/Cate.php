@@ -6,7 +6,4 @@ use think\Model;
 class Cate extends Model
 {
 
-
-
-
 }

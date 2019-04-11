@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:89:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\public/../application/admin\view\auth_group\edit.html";i:1543819302;s:74:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\admin\view\common\top.html";i:1541993868;s:75:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\admin\view\common\left.html";i:1543468376;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:89:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\public/../application/admin\view\auth_group\edit.html";i:1551623602;s:74:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\admin\view\common\top.html";i:1541993868;s:75:"D:\PHP\phpstudy\PHPTutorial\WWW\tp5\application\admin\view\common\left.html";i:1543468376;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -277,7 +277,8 @@
                                                         <th>
                                                             <label>
                                                                 <?php echo str_repeat("&nbsp;",$vo['level']*4);?>
-                                                                <input name="rules[]" value="<?php echo $vo['id']; ?>" dataid="id-<?php echo $vo['dataid']; ?>"  class="inverted checkbox-parent <?php if($vo['level'] != 0): ?> checkbox-child <?php endif; ?>"
+                                                                <input name="rules[]" value="<?php echo $vo['id']; ?>" dataid="id-<?php echo $vo['dataid']; ?>"  class="inverted checkbox-parent
+                                                                <?php if($vo['level'] != 0): ?> checkbox-child <?php endif; ?>"
                                                                 <?php
                                                                 $arr = explode(',',$authGroups['rules']);
                                                                 if(in_array($vo['id'],$arr)){

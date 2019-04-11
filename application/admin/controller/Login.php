@@ -10,7 +10,7 @@ class Login  extends Controller
         if(request()->isPost()){
             $data = input("post.");
             $admin = new Admin();
-            $result = $admin->login($data);
+            $result = $admin->login($data); //调用模型方法
 
             if($result == 1){
                 $this->error("该用户不存在");
@@ -21,8 +21,7 @@ class Login  extends Controller
             }elseif($result == 4){
                 $this->error("验证码错误");
             }
-
         }
-        return $this->fetch("login");
+        return view('login');
     }
 }

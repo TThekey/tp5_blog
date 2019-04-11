@@ -5,6 +5,7 @@ use app\admin\controller\Base;
 
 class AuthRule  extends Base
 {
+    //前置勾子
     protected $beforeActionList = [
         'delson'  =>  ['only'=>'del'],
     ];
@@ -12,6 +13,8 @@ class AuthRule  extends Base
     public function lst()
     {
         $authrule = new AuthRuleModel;
+
+        //排序逻辑
         if(request()->isPost()){
             $sorts = input("post.");
             foreach ($sorts as $k=>$v){
@@ -20,6 +23,7 @@ class AuthRule  extends Base
             $this->success("更新排序成功","lst");
             return;
         }
+
         $authrules = $authrule->authRuleTree();
         $this->assign("authrules",$authrules);
         return view();
@@ -27,14 +31,16 @@ class AuthRule  extends Base
 
     public function add()
     {
+        //添加逻辑
         if(request()->isPost()){
             $data = input("post.");
-            $plevel =db("auth_rule")->where("id",$data['pid'])->field("level")->find();
+            $plevel =db("auth_rule")->where("id",$data['pid'])->field("level")->find(); //得到父级level
             if($plevel){
                 $data['level'] = $plevel['level']+1;
             }else{
                 $data['level'] = 0;
             }
+
             $add = db("auth_rule")->insert($data);
             if($add){
                 $this->success("添加权限成功","lst");
@@ -44,6 +50,7 @@ class AuthRule  extends Base
             return;
         }
 
+        //添加界面
         $authrule = new AuthRuleModel;
         $authrules = $authrule->authRuleTree();
         $this->assign("authrules",$authrules);
@@ -54,6 +61,8 @@ class AuthRule  extends Base
     {
         $id = input("id");
         $authRules = db("auth_rule")->find($id);
+
+        //编辑逻辑
         if(request()->isPost()){
             $data = input("post.");
             $plevel =db("auth_rule")->where("id",$data['pid'])->field("level")->find();
@@ -62,6 +71,7 @@ class AuthRule  extends Base
             }else{
                 $data['level'] = 0;
             }
+
             $add = db("auth_rule")->update($data);
             if($add){
                 $this->success("修改权限成功","lst");
@@ -71,6 +81,7 @@ class AuthRule  extends Base
             return;
         }
 
+        //编辑界面
         $authrule = new AuthRuleModel;
         $authrules = $authrule->authRuleTree();
         $this->assign([
@@ -94,7 +105,7 @@ class AuthRule  extends Base
     public function delson(){
         $id = input("id");
         $authrule = new AuthRuleModel;
-        $ids = $authrule->getchildrenid($id);
+        $ids = $authrule->getchildrenid($id);   //得到所有子id
         if($ids){
             AuthRuleModel::destroy($ids);
         }

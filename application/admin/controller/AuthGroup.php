@@ -15,6 +15,7 @@ class AuthGroup  extends Base
 
     public function add()
     {
+        //添加逻辑
         if(request()->isPost()){
             $data = input("post.");
             if($data['rules']){
@@ -35,16 +36,19 @@ class AuthGroup  extends Base
             return;
         }
 
+        //添加界面
         $authrule = new AuthRuleModel();
-        $authrules = $authrule->authRuleTree();
+        $authrules = $authrule->authRuleTree(); //无限级分类获取rule
         $this->assign("authrules",$authrules);
         return view();
     }
 
-    public function edit(){
+    public function edit()
+    {
         $id = input("id");
         $authGroups = db("auth_group")->find($id);
 
+        //编辑逻辑
         if(request()->isPost()){
             $data = input("post.");
             if($data['rules']){
@@ -65,6 +69,7 @@ class AuthGroup  extends Base
             return;
         }
 
+        //编辑界面
         $this->assign("authGroups",$authGroups);
         $authrule = new AuthRuleModel();
         $authrules = $authrule->authRuleTree();
@@ -72,7 +77,8 @@ class AuthGroup  extends Base
         return view();
     }
 
-    public function del(){
+    public function del()
+    {
         $id = input("id");
         $request = db("auth_group")->delete($id);
         if($request){
@@ -80,7 +86,6 @@ class AuthGroup  extends Base
         }else{
             $this->error("删除用户组失败");
         }
-
     }
 
 }

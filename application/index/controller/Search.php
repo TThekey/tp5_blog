@@ -16,13 +16,14 @@ class Search  extends Base
                 "searchs"=>$searchs,
                 "keywords"=>$keywords,
             ));
-        }else{
+        }
+        else{
             $this->assign(array(
                "searchs"=>null,
                 "keywords"=>"暂无关键词"
             ));
         }
-        return $this->fetch("search");
+        return view("search");
     }
 
 }
